@@ -103,6 +103,12 @@
   <wsdl:message name="IService_DeleteBuyer_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBuyerResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetBuyerById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuyerById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetBuyerById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBuyerByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_InsertLocation_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertLocation" />
   </wsdl:message>
@@ -253,6 +259,12 @@
   <wsdl:message name="IService_GetUserUserByPhone_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserUserByPhoneResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetUserById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserById" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GetAllUsers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllUsers" />
   </wsdl:message>
@@ -270,12 +282,6 @@
   </wsdl:message>
   <wsdl:message name="IService_DeleteUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService_GetBuyerById_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetBuyerById" />
-  </wsdl:message>
-  <wsdl:message name="IService_GetBuyerById_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetBuyerByIdResponse" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="InsertAppointment">
@@ -341,6 +347,10 @@
     <wsdl:operation name="DeleteBuyer">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteBuyer" message="tns:IService_DeleteBuyer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteBuyerResponse" message="tns:IService_DeleteBuyer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBuyerById" message="tns:IService_GetBuyerById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBuyerByIdResponse" message="tns:IService_GetBuyerById_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertLocation">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertLocation" message="tns:IService_InsertLocation_InputMessage" />
@@ -442,6 +452,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserUserByPhone" message="tns:IService_GetUserUserByPhone_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserUserByPhoneResponse" message="tns:IService_GetUserUserByPhone_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserById" message="tns:IService_GetUserById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserByIdResponse" message="tns:IService_GetUserById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAllUsers" message="tns:IService_GetAllUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAllUsersResponse" message="tns:IService_GetAllUsers_OutputMessage" />
@@ -453,10 +467,6 @@
     <wsdl:operation name="DeleteUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteUser" message="tns:IService_DeleteUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteUserResponse" message="tns:IService_DeleteUser_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetBuyerById">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetBuyerById" message="tns:IService_GetBuyerById_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetBuyerByIdResponse" message="tns:IService_GetBuyerById_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService" type="tns:IService">
@@ -598,6 +608,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteBuyer">
       <soap:operation soapAction="http://tempuri.org/IService/DeleteBuyer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBuyerById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetBuyerById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -830,6 +849,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUserById">
+      <soap:operation soapAction="http://tempuri.org/IService/GetUserById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <soap:operation soapAction="http://tempuri.org/IService/GetAllUsers" style="document" />
       <wsdl:input>
@@ -850,15 +878,6 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteUser">
       <soap:operation soapAction="http://tempuri.org/IService/DeleteUser" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetBuyerById">
-      <soap:operation soapAction="http://tempuri.org/IService/GetBuyerById" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
