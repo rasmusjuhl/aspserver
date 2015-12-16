@@ -35,7 +35,7 @@
         <option value="@Model.Buyer.Address">@Model.Buyer.Address</option>
         }
         @if (Model.Seller != null) {    
-        <option value="@Model.Seller.Address"+","@Model.Seller.ZipCode>@Model.Seller.Address</option>
+        <option value="@(Model.Seller.Address + "," + @Model.Seller.ZipCode)">@Model.Seller.Address</option>
         }
     </select>
 </div>
