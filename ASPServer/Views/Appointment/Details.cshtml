@@ -9,14 +9,16 @@
 
 <table>
     <tr>
-        <th>Købers Navn</th> @if (Model.Buyer != null) { 
-        <td align="right">@Html.DisplayFor(x => Model.Buyer.Name)</td>
-                             }
+        <th>Købers Navn</th> @if (Model.Buyer != null)
+        {
+            <td align="right">@Html.DisplayFor(x => Model.Buyer.Name)</td>
+        }
     </tr>
     <tr>
-        <th>Sælgers Navn</th> @if (Model.Seller != null) { 
-        <td align="right">@Html.DisplayFor(x => Model.Seller.Name)</td>
-                              }
+        <th>Sælgers Navn</th> @if (Model.Seller != null)
+        {
+            <td align="right">@Html.DisplayFor(x => Model.Seller.Name)</td>
+        }
     </tr>
     <tr>
         <th>Dato</th>
@@ -31,11 +33,13 @@
 <div id="floating-panel">
     <strong>Til:</strong>
     <select id="end" onchange="calcRoute();">
-        @if (Model.Buyer != null){
-        <option value="@Model.Buyer.Address">@Model.Buyer.Address</option>
+        @if (Model.Buyer != null)
+        {
+            <option value="@(Model.Buyer.Address + "," + @Model.Buyer.ZipCode)">@Model.Buyer.Address</option>
         }
-        @if (Model.Seller != null) {    
-        <option value="@(Model.Seller.Address + "," + @Model.Seller.ZipCode)">@Model.Seller.Address</option>
+        @if (Model.Seller != null)
+        {
+            <option value="@(Model.Seller.Address + "," + @Model.Seller.ZipCode)">@Model.Seller.Address</option>
         }
     </select>
 </div>
